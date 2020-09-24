@@ -54,7 +54,7 @@ __decorate([
 __decorate([
     swagger_1.ApiProperty({
         title: 'Tipo de Documento (33,39)',
-        example: '33',
+        example: '39',
     }),
     __metadata("design:type", String)
 ], EncabezadoDto.prototype, "tipoDocumento", void 0);

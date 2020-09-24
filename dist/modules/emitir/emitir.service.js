@@ -23,10 +23,8 @@ let EmitirService = class EmitirService {
         const tipoDocto = Number(documento.encabezado.tipoDocumento);
         const folio = await this._folioService.create(tipoDocto);
         documento.encabezado.folio = "" + folio.folioDocumento;
-        console.log("documento xml ");
-        console.log(">>" + documento.despacho.toXml);
         const xml = `<![CDATA[
-                    ` + documento.encabezado.toXml + `
+                    ` + this.xmlDocumento(documento) + `
             ]]>`;
         const options = {};
         const soap = require('strong-soap').soap;
@@ -51,14 +49,18 @@ let EmitirService = class EmitirService {
                             error: true,
                             message: err,
                             folio: 0,
+                            estado: result.RecepcionXmlResult.Estado,
+                            mensaje: result.RecepcionXmlResult.Mensaje,
                         });
                     }
                     if (result.RecepcionXmlResult) {
                         resolve({
                             error: false,
                             message: 'Emitir cargado con exito',
-                            folio: result.Folio,
-                            mensaje: result.Mensaje,
+                            folio: result.RecepcionXmlResult.Folio,
+                            tipoDocumento: result.RecepcionXmlResult.TipoDocumento,
+                            estado: result.RecepcionXmlResult.Estado,
+                            mensaje: result.RecepcionXmlResult.Mensaje,
                         });
                     }
                     else {
@@ -66,6 +68,8 @@ let EmitirService = class EmitirService {
                             error: true,
                             message: 'No fue posible emitir',
                             folio: 0,
+                            estado: result.RecepcionXmlResult.Estado,
+                            mensaje: result.RecepcionXmlResult.Mensaje,
                         });
                     }
                     console.log('-----TRUE------');
@@ -79,7 +83,109 @@ let EmitirService = class EmitirService {
                 error: resultado.message,
             }, 400);
         }
-        return null;
+        console.log(resultado);
+        return await this._emitirRepository.save(resultado);
+    }
+    xmlDocumento(documento) {
+        return `<Documento>
+                        ` + this.xmlEncabezado(documento.encabezado) + `
+                        ` + this.xmlReceptor(documento.receptor) + `
+                        ` + this.xmlExportacion() + `
+                        ` + this.xmlDetalles(documento.detalles) + `
+                        ` + this.xmlTotales(documento.totales) + `
+                        ` + this.xmlOtraMoneda(documento.otraMoneda) + `
+                        ` + this.xmlDespacho() + `
+                        ` + this.xmlPersonalizados(documento.personalizados) + `
+                </Documento>`;
+    }
+    xmlDespacho() {
+        return ` <Despacho> 
+                    <IndicadorTraslado/> 
+                    <DireccionDestino/> 
+                    <ComunaDestino/> 
+                    <CiudadDestino/> 
+                    <Patente/> 
+                    <Chofer/> 
+                </Despacho> `;
+    }
+    xmlDetalles(detalle) {
+        return `<Detalle> 
+                    <Linea>` + detalle.linea + `</Linea> 
+                    <TipoDocumentoLiquidado/> 
+                    <DetalleProducto>` + detalle.detalleProducto + `</DetalleProducto> 
+                    <Cantidad/> 
+                    <PrecioUnitario/> 
+                    <PrecioDolar/> 
+                    <TotalLinea/> 
+                    <IndicaorRetenedor/> 
+                    <CodigoImpuestoAdicional/> 
+                </Detalle> `;
+    }
+    xmlEncabezado(encabezado) {
+        return `<Encabezado> 
+                <CodDctoSap>` + encabezado.folio + `</CodDctoSap> 
+                <CodigoEmpresa>` + encabezado.codigoEmpresa + `</CodigoEmpresa>
+                <Resolucion>0` + encabezado.resolucion + `</Resolucion>
+                <TipoDocumento>` + encabezado.tipoDocumento + `</TipoDocumento>
+                <Folio>` + encabezado.folio + `</Folio>
+                <FechaEmision>` + encabezado.fechaEmision + `</FechaEmision> 
+                <FechaVencimiento>` + encabezado.fechaVencimiento + `</FechaVencimiento> 
+                <CodigoSucursal/> 
+                <DireccionSucursal/>
+                <ComunaSucursal/> 
+                <CiudadSucursal/> 
+                </Encabezado> `;
+    }
+    xmlExportacion() {
+        return ` <Exportacion> 
+                    <CodigoTransporte/> 
+                    <CodigoPaisReceptor/> 
+                    <CodigoPaisDestino/> 
+                    <TotalProductos/> 
+                    <TipoMoneda/> 
+                    <TipoCambio/> 
+                    <TotalMonedaExtranjera/> 
+                    <Origen/> 
+                    <Destino/> 
+                    <Operacion/> 
+                    <HblAwb/> 
+                </Exportacion> `;
+    }
+    xmlOtraMoneda(otraMoneda) {
+        return `<OtraMoneda> 
+                    <TipoMoneda>` + otraMoneda.tipoMoneda + `</TipoMoneda> 
+                    <TipoCambio> ` + otraMoneda.tipoCambio + `</TipoCambio> 
+                    <TotalOtraMoneda> ` + otraMoneda.totalOtraMoneda + `</TotalOtraMoneda>                           
+                </OtraMoneda>`;
+    }
+    xmlPersonalizados(personalizados) {
+        return `<Personalizados> 
+                    <RequiereImpresion>` + personalizados.requiereImpresion + `</RequiereImpresion> 
+                    <Cedible>` + personalizados.cedible + `</Cedible> 
+                    <Impresora>` + personalizados.impresora + `</Impresora> 
+                    <MontoLetras>` + personalizados.montoLetras + `</MontoLetras> 
+                    <CuentaCorriente>` + personalizados.cuentaCorriente + `</CuentaCorriente> 
+                </Personalizados> `;
+    }
+    xmlReceptor(receptor) {
+        return `    <Receptor> 
+                        <Rut>` + receptor.rut + `</Rut> 
+                        <CodigoCliente>` + receptor.codigoCliente + `</CodigoCliente> 
+                        <Nombre>` + receptor.nombre + `</Nombre> 
+                        <Direccion> ` + receptor.direccion + `</Direccion> 
+                        <Comuna>` + receptor.comuna + `</Comuna> 
+                        <Ciudad>` + receptor.ciudad + `</Ciudad> 
+                        <Giro>` + receptor.giro + `</Giro> 
+                    </Receptor> `;
+    }
+    xmlTotales(totales) {
+        return ` <Totales> 
+                    <Neto>` + totales.neto + `</Neto> 
+                    <Exento>` + totales.exento + `</Exento> 
+                    <TasaIVA>` + totales.tasaIVA + `</TasaIVA> 
+                    <IVA>` + totales.iva + `</IVA> 
+                    <MntTotal>` + totales.mntTotal + `</MntTotal> 
+                </Totales> `;
     }
 };
 EmitirService = __decorate([

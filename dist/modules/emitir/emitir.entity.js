@@ -18,9 +18,21 @@ __decorate([
     __metadata("design:type", Number)
 ], Emitir.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column({ type: 'varchar', nullable: false }),
+    typeorm_1.Column({ type: 'varchar', nullable: true }),
     __metadata("design:type", Number)
 ], Emitir.prototype, "tipoDocumento", void 0);
+__decorate([
+    typeorm_1.Column({ type: 'varchar', nullable: true }),
+    __metadata("design:type", String)
+], Emitir.prototype, "folio", void 0);
+__decorate([
+    typeorm_1.Column({ type: 'varchar', nullable: true }),
+    __metadata("design:type", String)
+], Emitir.prototype, "estado", void 0);
+__decorate([
+    typeorm_1.Column({ type: 'varchar', nullable: true }),
+    __metadata("design:type", String)
+], Emitir.prototype, "mensaje", void 0);
 Emitir = __decorate([
     typeorm_1.Entity('emitir')
 ], Emitir);

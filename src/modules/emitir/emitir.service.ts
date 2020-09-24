@@ -9,6 +9,12 @@ import { Configuration } from '../../config/config.keys';
 import { DocumentoDto } from './dto/documento.dto';
 import { FolioService } from '../folio/folio.service';
 import { Folio } from '../folio/folio.entity';
+import { EncabezadoDto } from './dto/encabezado.dto';
+import { DetalleDto } from './dto/detalle.dto';
+import { OtraMonedaDto } from './dto/otra-moneda.dto';
+import { TotalesDto } from './dto/totales.dto';
+import { ReceptorDto } from './dto/receptor.dto';
+import { PersonalizadosDto } from './dto/personalizados.dto';
 
 @Injectable()
 export class EmitirService {
@@ -21,11 +27,9 @@ export class EmitirService {
         const tipoDocto = Number(documento.encabezado.tipoDocumento);
         const folio: Folio = await this._folioService.create(tipoDocto);
         documento.encabezado.folio = "" + folio.folioDocumento;
-        console.log("documento xml ")
-        console.log(documento.despacho.toXml)
         const xml =
             `<![CDATA[
-                    `+ documento.encabezado.toXml + `
+                    `+ this.xmlDocumento(documento) + `
             ]]>`;
         const options = {};
         const soap = require('strong-soap').soap;
@@ -50,20 +54,26 @@ export class EmitirService {
                             error: true,
                             message: err,
                             folio: 0,
+                            estado: result.RecepcionXmlResult.Estado,
+                            mensaje: result.RecepcionXmlResult.Mensaje,
                         });
                     }
                     if (result.RecepcionXmlResult) {
                         resolve({
                             error: false,
                             message: 'Emitir cargado con exito',
-                            folio: result.Folio,
-                            mensaje: result.Mensaje,
+                            folio: result.RecepcionXmlResult.Folio,
+                            tipoDocumento: result.RecepcionXmlResult.TipoDocumento,
+                            estado: result.RecepcionXmlResult.Estado,
+                            mensaje: result.RecepcionXmlResult.Mensaje,
                         });
                     } else {
                         resolve({
                             error: true,
                             message: 'No fue posible emitir',
                             folio: 0,
+                            estado: result.RecepcionXmlResult.Estado,
+                            mensaje: result.RecepcionXmlResult.Mensaje,
                         });
                     }
                     console.log('-----TRUE------');
@@ -81,140 +91,125 @@ export class EmitirService {
                 400,
             )
         }
+        // const doc = { Folio: result.Folio, TipoDocumento: 39, Estado: 0, Mensaje: 'Ok' }
 
-        // console.log(resultado);
+        console.log(resultado);
         //     const documento = { tipoDocumento: tipo, folioDocumento: '' };
         //     return await this._emitirRepository.save(documento);
 
         // let documentoSave = await this._emitirRepository.save(f);
-        return null;
+        return await this._emitirRepository.save(resultado);
 
     }
 
+    xmlDocumento(documento: DocumentoDto): string {
+        return `<Documento>
+                        `+ this.xmlEncabezado(documento.encabezado) + `
+                        `+ this.xmlReceptor(documento.receptor) + `
+                        `+ this.xmlExportacion() + `
+                        `+ this.xmlDetalles(documento.detalles) + `
+                        `+ this.xmlTotales(documento.totales) + `
+                        `+ this.xmlOtraMoneda(documento.otraMoneda) + `
+                        `+ this.xmlDespacho() + `
+                        `+ this.xmlPersonalizados(documento.personalizados) + `
+                </Documento>`;
+    }
 
+    xmlDespacho(): string {
+        return ` <Despacho> 
+                    <IndicadorTraslado/> 
+                    <DireccionDestino/> 
+                    <ComunaDestino/> 
+                    <CiudadDestino/> 
+                    <Patente/> 
+                    <Chofer/> 
+                </Despacho> `;
+    }
 
+    xmlDetalles(detalle: DetalleDto): string {
+        return `<Detalle> 
+                    <Linea>`+ detalle.linea + `</Linea> 
+                    <TipoDocumentoLiquidado/> 
+                    <DetalleProducto>`+ detalle.detalleProducto + `</DetalleProducto> 
+                    <Cantidad/> 
+                    <PrecioUnitario/> 
+                    <PrecioDolar/> 
+                    <TotalLinea/> 
+                    <IndicaorRetenedor/> 
+                    <CodigoImpuestoAdicional/> 
+                </Detalle> `;
+    }
 
+    xmlEncabezado(encabezado: EncabezadoDto): string {
+        return `<Encabezado> 
+                <CodDctoSap>`+ encabezado.folio + `</CodDctoSap> 
+                <CodigoEmpresa>`+ encabezado.codigoEmpresa + `</CodigoEmpresa>
+                <Resolucion>0`+ encabezado.resolucion + `</Resolucion>
+                <TipoDocumento>`+ encabezado.tipoDocumento + `</TipoDocumento>
+                <Folio>`+ encabezado.folio + `</Folio>
+                <FechaEmision>`+ encabezado.fechaEmision + `</FechaEmision> 
+                <FechaVencimiento>`+ encabezado.fechaVencimiento + `</FechaVencimiento> 
+                <CodigoSucursal/> 
+                <DireccionSucursal/>
+                <ComunaSucursal/> 
+                <CiudadSucursal/> 
+                </Encabezado> `;
+    }
 
+    xmlExportacion(): string {
+        return ` <Exportacion> 
+                    <CodigoTransporte/> 
+                    <CodigoPaisReceptor/> 
+                    <CodigoPaisDestino/> 
+                    <TotalProductos/> 
+                    <TipoMoneda/> 
+                    <TipoCambio/> 
+                    <TotalMonedaExtranjera/> 
+                    <Origen/> 
+                    <Destino/> 
+                    <Operacion/> 
+                    <HblAwb/> 
+                </Exportacion> `;
+    }
 
+    xmlOtraMoneda(otraMoneda: OtraMonedaDto): string {
+        return `<OtraMoneda> 
+                    <TipoMoneda>`+ otraMoneda.tipoMoneda + `</TipoMoneda> 
+                    <TipoCambio> `+ otraMoneda.tipoCambio + `</TipoCambio> 
+                    <TotalOtraMoneda> `+ otraMoneda.totalOtraMoneda + `</TotalOtraMoneda>                           
+                </OtraMoneda>`;
+    }
 
+    xmlPersonalizados(personalizados: PersonalizadosDto): string {
+        return `<Personalizados> 
+                    <RequiereImpresion>`+ personalizados.requiereImpresion + `</RequiereImpresion> 
+                    <Cedible>`+ personalizados.cedible + `</Cedible> 
+                    <Impresora>`+ personalizados.impresora + `</Impresora> 
+                    <MontoLetras>`+ personalizados.montoLetras + `</MontoLetras> 
+                    <CuentaCorriente>`+ personalizados.cuentaCorriente + `</CuentaCorriente> 
+                </Personalizados> `;
+    }
 
+    xmlReceptor(receptor: ReceptorDto): string {
+        return `    <Receptor> 
+                        <Rut>`+ receptor.rut + `</Rut> 
+                        <CodigoCliente>`+ receptor.codigoCliente + `</CodigoCliente> 
+                        <Nombre>`+ receptor.nombre + `</Nombre> 
+                        <Direccion> `+ receptor.direccion + `</Direccion> 
+                        <Comuna>`+ receptor.comuna + `</Comuna> 
+                        <Ciudad>`+ receptor.ciudad + `</Ciudad> 
+                        <Giro>`+ receptor.giro + `</Giro> 
+                    </Receptor> `;
+    }
 
+    xmlTotales(totales: TotalesDto): string {
+        return ` <Totales> 
+                    <Neto>`+ totales.neto + `</Neto> 
+                    <Exento>`+ totales.exento + `</Exento> 
+                    <TasaIVA>`+ totales.tasaIVA + `</TasaIVA> 
+                    <IVA>`+ totales.iva + `</IVA> 
+                    <MntTotal>`+ totales.mntTotal + `</MntTotal> 
+                </Totales> `;
+    }
 
-
-
-
-
-
-
-
-    //async create(tipo: any): Promise<Emitir> {
-    //     const encabezado = `  <Encabezado> 
-    //                             <CodDctoSap>5705</CodDctoSap> 
-    //                             <CodigoEmpresa>25</CodigoEmpresa>
-    //                             <Resolucion>0</Resolucion>
-    //                             <TipoDocumento>33</TipoDocumento>
-    //                             <Folio>5705</Folio>
-    //                             <FechaEmision>2019-09-26</FechaEmision> 
-    //                             <FechaVencimiento>2019-09-25</FechaVencimiento> 
-    //                             <CodigoSucursal/> 
-    //                             <DireccionSucursal/>
-    //                             <ComunaSucursal/> 
-    //                             <CiudadSucursal/> 
-    //                         </Encabezado> `;
-    //     const receptor = `    <Receptor> 
-    //                             <Rut>96570750-6</Rut> 
-    //                             <CodigoCliente>0000409313</CodigoCliente> 
-    //                             <Nombre>DSV AIR &amp; SEA</Nombre> 
-    //                             <Direccion> ANDRES BELLO 2687, PISO 14</Direccion> 
-    //                             <Comuna>SANTIAGO</Comuna> 
-    //                             <Ciudad>LAS CONDES</Ciudad> 
-    //                             <Giro>CARGA TRANSPORTE REGULAR</Giro> 
-    //                         </Receptor> `;
-    //     const exportacion = ` <Exportacion> 
-    //                             <CodigoTransporte/> 
-    //                             <CodigoPaisReceptor/> 
-    //                             <CodigoPaisDestino/> 
-    //                             <TotalProductos/> 
-    //                             <TipoMoneda/> 
-    //                             <TipoCambio/> 
-    //                             <TotalMonedaExtranjera/> 
-    //                             <Origen/> 
-    //                             <Destino/> 
-    //                             <Operacion/> 
-    //                             <HblAwb/> 
-    //                         </Exportacion> `;
-    //     // debe ser un array
-    //     const detalles = `<Detalle> 
-    //                         <Linea> 2</Linea> 
-    //                         <TipoDocumentoLiquidado/> 
-    //                         <DetalleProducto>UBER</DetalleProducto> 
-    //                         <Cantidad/> 
-    //                         <PrecioUnitario/> 
-    //                         <PrecioDolar/> 
-    //                         <TotalLinea/> 
-    //                         <IndicaorRetenedor/> 
-    //                         <CodigoImpuestoAdicional/> 
-    //                     </Detalle> `;
-
-    //     const totales = ` <Totales> 
-    //                         <Neto>86112</Neto> 
-    //                         <Exento>0</Exento> 
-    //                         <TasaIVA>19</TasaIVA> 
-    //                         <IVA>16361</IVA> 
-    //                         <MntTotal>102473</MntTotal> 
-    //                     </Totales> `;
-
-    //     const otra_moneda = `<OtraMoneda> 
-    //                         <TipoMoneda>CLP</TipoMoneda> 
-    //                         <TipoCambio> 0</TipoCambio> 
-    //                         <TotalOtraMoneda> 0.00</TotalOtraMoneda> 
-    //                        </OtraMoneda>`;
-
-    //     const despacho = `    <Despacho> 
-    //                             <IndicadorTraslado/> 
-    //                             <DireccionDestino/> 
-    //                             <ComunaDestino/> 
-    //                             <CiudadDestino/> 
-    //                             <Patente/> 
-    //                             <Chofer/> 
-    //                         </Despacho> `;
-
-    //     const personalizados = `<Personalizados> 
-    //                             <RequiereImpresion>N</RequiereImpresion> 
-    //                             <Cedible>S</Cedible> 
-    //                             <Impresora>LP01</Impresora> 
-    //                             <MontoLetras>CIENTO DOS MIL CUATROCIENTOS SETENTA Y TRES</MontoLetras> 
-    //                             <CuentaCorriente>409313</CuentaCorriente> 
-    //                           </Personalizados> `;
-    //     const xml =
-    //         `<![CDATA[
-    //             <Documento>
-    //                 `+ encabezado + `
-    //                 `+ receptor + `
-    //                 `+ exportacion + `
-    //                 `+ detalles + `
-    //                 `+ totales + `
-    //                 `+ otra_moneda + `
-    //                 `+ despacho + `
-    //                 `+ personalizados + `
-    //             </Documento>
-    //         ]]>`;
-    //     const options = {};
-    //     const soap = require('strong-soap').soap;
-    //     const url = Configuration.WSDL_DOCUMENTO;
-    //     const requestArgs = {
-    //         XmlEntrada: xml
-    //     };
-    //     soap.createClient(url, options, function (err, client) {
-    //         console.log(client);
-    //         console.log(err);
-    //         const method = client.RecepcionXml;
-    //         method(requestArgs, function (err, result, _envelope, soapHeader) {
-    //             console.log('-----TRUE------');
-    //             console.log(result);
-    //         });
-    //     });
-    //     const documento = { tipoDocumento: tipo, folioDocumento: '' };
-    //     return await this._emitirRepository.save(documento);
-    // }
 }

@@ -13,6 +13,7 @@ exports.DocumentoDto = void 0;
 const encabezado_dto_1 = require("./encabezado.dto");
 const receptor_dto_1 = require("./receptor.dto");
 const exportacion_dto_1 = require("./exportacion.dto");
+const detalle_dto_1 = require("./detalle.dto");
 const totales_dto_1 = require("./totales.dto");
 const otra_moneda_dto_1 = require("./otra-moneda.dto");
 const despacho_dto_1 = require("./despacho.dto");
@@ -25,8 +26,7 @@ class DocumentoDto {
                             ` + this.encabezado.toXml + `
                             ` + this.receptor.toXml + `
                             ` + this.exportacion.toXml + `
-                            ` + this.detalles.forEach(function (detalle) { ` ` + this.detalle.toXml + ` `; });
-            +`
+                            ` + this.detalles.toXml + `
                             ` + this.totales.toXml + `
                             ` + this.otraMoneda.toXml + `
                             ` + this.despacho.toXml + `
@@ -49,7 +49,7 @@ __decorate([
 ], DocumentoDto.prototype, "exportacion", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    __metadata("design:type", Array)
+    __metadata("design:type", detalle_dto_1.DetalleDto)
 ], DocumentoDto.prototype, "detalles", void 0);
 __decorate([
     swagger_1.ApiProperty(),

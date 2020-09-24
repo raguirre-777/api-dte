@@ -18,7 +18,7 @@ export class EncabezadoDto {
     resolucion?: string;
     @ApiProperty({
         title: 'Tipo de Documento (33,39)',
-        example: '33',
+        example: '39',
     })
     tipoDocumento?: string;
     @ApiProperty({

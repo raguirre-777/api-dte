@@ -10,7 +10,7 @@ export declare class DocumentoDto {
     encabezado: EncabezadoDto;
     receptor: ReceptorDto;
     exportacion: ExportacionDto;
-    detalles: DetalleDto[];
+    detalles: DetalleDto;
     totales: TotalesDto;
     otraMoneda: OtraMonedaDto;
     despacho: DespachoDto;

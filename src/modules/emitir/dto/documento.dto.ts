@@ -17,7 +17,7 @@ export class DocumentoDto {
     @ApiProperty()
     exportacion: ExportacionDto;
     @ApiProperty()
-    detalles: DetalleDto[];
+    detalles: DetalleDto;
     @ApiProperty()
     totales: TotalesDto;
     @ApiProperty()
@@ -32,7 +32,7 @@ export class DocumentoDto {
                             `+ this.encabezado.toXml + `
                             `+ this.receptor.toXml + `
                             `+ this.exportacion.toXml + `
-                            `+ this.detalles.forEach(function (detalle) { ` ` + this.detalle.toXml + ` `; }); + `
+                            `+ this.detalles.toXml + `
                             `+ this.totales.toXml + `
                             `+ this.otraMoneda.toXml + `
                             `+ this.despacho.toXml + `
