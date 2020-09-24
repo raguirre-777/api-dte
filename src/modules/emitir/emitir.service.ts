@@ -78,6 +78,7 @@ export class EmitirService {
                     }
                     console.log('-----TRUE------');
                     console.log(result);
+
                 });
             });
         });
@@ -91,13 +92,6 @@ export class EmitirService {
                 400,
             )
         }
-        // const doc = { Folio: result.Folio, TipoDocumento: 39, Estado: 0, Mensaje: 'Ok' }
-
-        console.log(resultado);
-        //     const documento = { tipoDocumento: tipo, folioDocumento: '' };
-        //     return await this._emitirRepository.save(documento);
-
-        // let documentoSave = await this._emitirRepository.save(f);
         return await this._emitirRepository.save(resultado);
 
     }

@@ -1036,7 +1036,7 @@
         "signature": "17d0601882b9ab77dc854b7f5105f437a5f9d22210f40c729814844dd540570d",
         "affectsGlobalScope": false
       },
-      "../node_modules/axios/index.d.ts": {
+      "../node_modules/@nestjs/common/node_modules/axios/index.d.ts": {
         "version": "e7df7eb51c5090db4bdcdbf9efe053530dff0e33796f40b08b1a3be6c3a351d0",
         "signature": "e7df7eb51c5090db4bdcdbf9efe053530dff0e33796f40b08b1a3be6c3a351d0",
         "affectsGlobalScope": false
@@ -3002,7 +3002,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/emitir/emitir.service.ts": {
-        "version": "359927be1b944c4e6b4dbcbda52d6b6092bb9be6bab5c82c53a8ff1471f75d05",
+        "version": "de2299b8152eb089541ebdb96c7f27b293ce2918b79b44864eaa97d62bd15470",
         "signature": "46b26737399bdb4ff024c51123864e2ef72e08873879f19eb559c3eaf03af4eb",
         "affectsGlobalScope": false
       },
@@ -3036,18 +3036,23 @@
         "signature": "f599e6bf2380696299bd9b125a5f81ab741abbca20d6927c32f221cf0e36a777",
         "affectsGlobalScope": false
       },
+      "../node_modules/axios/index.d.ts": {
+        "version": "c50b2f015a8bddda1689f8228703f177614f9e10348f4a845104f04351264507",
+        "signature": "c50b2f015a8bddda1689f8228703f177614f9e10348f4a845104f04351264507",
+        "affectsGlobalScope": false
+      },
       "../src/modules/pdf/pdf.service.ts": {
-        "version": "01b5d285a7ec8ce2b3c3ae9ca2ce56b3b3c2cbbdfc32c3a688d7713183c84289",
-        "signature": "b071dce7ac6f97733283217d7a66b65005eb595ef11916c53a7775a5b37ef420",
+        "version": "fd3a31ddc3c641b8a09f5fb344d82e4e47c502cf85634a964574dae169c01c2e",
+        "signature": "dc370764018fb66ec2b6354c3c2ca37bd96d48805ad10bce9aeb0a4dd02c278e",
         "affectsGlobalScope": false
       },
       "../src/modules/pdf/pdf.controller.ts": {
-        "version": "53022fff744c65793b7e11fb72f0b902609345c732920a5a492e150d4544774f",
-        "signature": "d771eec6d92c88f9850c04e39587ad7c9ab945ca1c53a95a1cb7e6243426cb4d",
+        "version": "8fd9903e21086f7e3ccd33228c5396f208a3043f7f9349f5a73ba5391b4672e8",
+        "signature": "a917b838fa3113247ab1ed7ad0cfd735c0af3a2aaf02ff10eb99acecd38c07c7",
         "affectsGlobalScope": false
       },
       "../src/modules/pdf/pdf.module.ts": {
-        "version": "7f7cc7653d908494dc0b90875932f2e6af4ea06dde87ad597f01ff6c7b137368",
+        "version": "1a1aabcbf78f71b05b558f31f3c18a5bd22d8a7096b79a4bebacf45b4dbc8e51",
         "signature": "2afb2161932deb8014b0406dce404c044cec7c6b6dd3da68d2fd9e1e6f73cc8d",
         "affectsGlobalScope": false
       },
@@ -4090,12 +4095,12 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../node_modules/@nestjs/common/http/http.service.d.ts": [
+        "../node_modules/@nestjs/common/node_modules/axios/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
-        "../node_modules/axios/index.d.ts",
         "../node_modules/rxjs/index.d.ts"
       ],
       "../node_modules/@nestjs/common/http/index.d.ts": [
@@ -4110,12 +4115,12 @@
       ],
       "../node_modules/@nestjs/common/http/interfaces/http-module.interface.d.ts": [
         "../node_modules/@nestjs/common/interfaces/index.d.ts",
+        "../node_modules/@nestjs/common/node_modules/axios/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/axios/index.d.ts"
+        "../node_modules/@types/node/util.d.ts"
       ],
       "../node_modules/@nestjs/common/http/interfaces/index.d.ts": [
         "../node_modules/@nestjs/common/http/interfaces/http-module.interface.d.ts",
@@ -4584,6 +4589,13 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/common/node_modules/axios/index.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
       ],
       "../node_modules/@nestjs/common/pipes/default-value.pipe.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -9992,6 +10004,8 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
+        "../node_modules/axios/index.d.ts",
+        "../node_modules/rxjs/index.d.ts",
         "../src/modules/pdf/pdf.entity.ts",
         "../src/modules/pdf/pdf.service.ts"
       ],
@@ -10026,15 +10040,13 @@
       ],
       "../src/modules/pdf/pdf.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
-        "../node_modules/typeorm/index.d.ts",
-        "../src/modules/pdf/pdf.entity.ts",
-        "../src/modules/pdf/pdf.repository.ts"
+        "../node_modules/axios/index.d.ts",
+        "../node_modules/rxjs/index.d.ts"
       ],
       "../src/shared/shared.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -11108,6 +11120,13 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/common/node_modules/axios/index.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
       ],
       "../node_modules/@nestjs/common/pipes/default-value.pipe.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -16288,7 +16307,8 @@
         "../src/modules/folio/folio.repository.ts"
       ],
       "../src/modules/pdf/pdf.controller.ts": [
-        "../src/modules/pdf/pdf.entity.ts",
+        "../node_modules/axios/index.d.ts",
+        "../node_modules/rxjs/index.d.ts",
         "../src/modules/pdf/pdf.service.ts"
       ],
       "../src/modules/pdf/pdf.entity.ts": [
@@ -16299,8 +16319,9 @@
         "../src/modules/pdf/pdf.entity.ts"
       ],
       "../src/modules/pdf/pdf.service.ts": [
-        "../src/modules/pdf/pdf.entity.ts",
-        "../src/modules/pdf/pdf.repository.ts"
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/axios/index.d.ts",
+        "../node_modules/rxjs/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -16424,6 +16445,7 @@
       "../node_modules/@nestjs/common/interfaces/scope-options.interface.d.ts",
       "../node_modules/@nestjs/common/interfaces/type.interface.d.ts",
       "../node_modules/@nestjs/common/interfaces/websockets/web-socket-adapter.interface.d.ts",
+      "../node_modules/@nestjs/common/node_modules/axios/index.d.ts",
       "../node_modules/@nestjs/common/pipes/default-value.pipe.d.ts",
       "../node_modules/@nestjs/common/pipes/index.d.ts",
       "../node_modules/@nestjs/common/pipes/parse-array.pipe.d.ts",
@@ -16977,6 +16999,7 @@
       "../src/config/config.service.ts",
       "../src/database/database.module.ts",
       "../src/database/database.service.ts",
+      "../src/database/migrations/1600935967513-aaaa.ts",
       "../src/main.ts",
       "../src/modules/emitir/dto/despacho.dto.ts",
       "../src/modules/emitir/dto/detalle.dto.ts",
@@ -16988,6 +17011,7 @@
       "../src/modules/emitir/dto/receptor.dto.ts",
       "../src/modules/emitir/dto/totales.dto.ts",
       "../src/modules/emitir/emitir.controller.ts",
+      "../src/modules/emitir/emitir.entity.ts",
       "../src/modules/emitir/emitir.module.ts",
       "../src/modules/emitir/emitir.repository.ts",
       "../src/modules/emitir/emitir.service.ts",

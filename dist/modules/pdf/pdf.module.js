@@ -17,7 +17,8 @@ let PdfModule = class PdfModule {
 PdfModule = __decorate([
     common_1.Module({
         imports: [
-            typeorm_1.TypeOrmModule.forFeature([pdf_repository_1.PdfRepository])
+            typeorm_1.TypeOrmModule.forFeature([pdf_repository_1.PdfRepository]),
+            common_1.HttpModule
         ],
         providers: [pdf_service_1.PdfService],
         controllers: [pdf_controller_1.PdfController],

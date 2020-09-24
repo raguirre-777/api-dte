@@ -17,17 +17,17 @@ let PdfController = class PdfController {
     constructor(_pdfService) {
         this._pdfService = _pdfService;
     }
-    async getPdf() {
-        const pdf = await this._pdfService.getAll();
-        return pdf;
+    async create() {
+        return this._pdfService.create();
+        ;
     }
 };
 __decorate([
-    common_1.Get(),
+    common_1.Put(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
-], PdfController.prototype, "getPdf", null);
+], PdfController.prototype, "create", null);
 PdfController = __decorate([
     swagger_1.ApiTags('Solicitar PDF para DTE'),
     common_1.Controller('pdf'),

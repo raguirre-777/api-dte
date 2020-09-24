@@ -1,7 +1,8 @@
-import { PdfRepository } from './pdf.repository';
-import { Pdf } from './pdf.entity';
+import { HttpService } from '@nestjs/common';
+import { AxiosResponse } from 'axios';
+import { Observable } from 'rxjs';
 export declare class PdfService {
-    private readonly _pdfRepository;
-    constructor(_pdfRepository: PdfRepository);
-    getAll(): Promise<Pdf[]>;
+    private httpService;
+    constructor(httpService: HttpService);
+    create(): Promise<Observable<AxiosResponse<any[]>>>;
 }

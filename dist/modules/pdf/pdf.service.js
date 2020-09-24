@@ -11,19 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PdfService = void 0;
 const common_1 = require("@nestjs/common");
-const pdf_repository_1 = require("./pdf.repository");
 let PdfService = class PdfService {
-    constructor(_pdfRepository) {
-        this._pdfRepository = _pdfRepository;
+    constructor(httpService) {
+        this.httpService = httpService;
     }
-    async getAll() {
-        const folios = await this._pdfRepository.find();
-        return folios;
+    async create() {
+        return await this.httpService.put('http://10.83.45.21:8000/utiles/getUrlPublico.php?rut_emisor=76211240&tipo=39&folio=8306');
+        ;
     }
 };
 PdfService = __decorate([
     common_1.Injectable(),
-    __metadata("design:paramtypes", [pdf_repository_1.PdfRepository])
+    __metadata("design:paramtypes", [common_1.HttpService])
 ], PdfService);
 exports.PdfService = PdfService;
 //# sourceMappingURL=pdf.service.js.map

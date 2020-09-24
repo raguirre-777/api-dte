@@ -83,7 +83,6 @@ let EmitirService = class EmitirService {
                 error: resultado.message,
             }, 400);
         }
-        console.log(resultado);
         return await this._emitirRepository.save(resultado);
     }
     xmlDocumento(documento) {
