@@ -1,4 +1,4 @@
-export declare class Encabezado {
+export declare class EncabezadoDto {
     codDctoSap?: string;
     codigoEmpresa?: string;
     resolucion?: string;
@@ -6,9 +6,5 @@ export declare class Encabezado {
     folio?: string;
     fechaEmision?: string;
     fechaVencimiento?: string;
-    codigoSucursal?: string;
-    direccionSucursal?: string;
-    comunaSucursal?: string;
-    ciudadSucursal?: string;
-    xml: string;
+    toXml: any;
 }

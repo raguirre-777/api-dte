@@ -1,9 +1,3 @@
-export declare class Despacho {
-    indicadorTraslado?: string;
-    direccionDestino?: string;
-    comunaDestino?: string;
-    ciudadDestino?: string;
-    patente?: string;
-    chofer?: string;
-    xml: string;
+export declare class DespachoDto {
+    toXml: any;
 }

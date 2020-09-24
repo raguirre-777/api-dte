@@ -3,11 +3,7 @@ import {
     Get,
     Param,
     Post,
-    Body,
-    Patch,
-    Delete,
     ParseIntPipe,
-    UseGuards,
 } from '@nestjs/common';
 import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 import { Emitir } from './emitir.entity';

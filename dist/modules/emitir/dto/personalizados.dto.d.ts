@@ -1,9 +1,9 @@
-export declare class Personalizados {
-    RequiereImpresion: string;
-    Cedible: string;
-    Impresora: string;
-    MontoLetras: string;
-    CuentaCorriente: string;
+export declare class PersonalizadosDto {
+    requiereImpresion: string;
+    cedible: string;
+    impresora: string;
+    montoLetras: string;
+    cuentaCorriente: string;
     RutIva: string;
-    xml: string;
+    toXml: any;
 }

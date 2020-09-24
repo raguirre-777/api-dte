@@ -9,38 +9,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DetalleDto = void 0;
+exports.OtraMonedaDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
-class DetalleDto {
+class OtraMonedaDto {
     constructor() {
         this.toXml = () => {
-            return `<Detalle> 
-        <Linea>` + this.linea + `</Linea> 
-        <TipoDocumentoLiquidado/> 
-        <DetalleProducto>` + this.detalleProducto + `</DetalleProducto> 
-        <Cantidad/> 
-        <PrecioUnitario/> 
-        <PrecioDolar/> 
-        <TotalLinea/> 
-        <IndicaorRetenedor/> 
-        <CodigoImpuestoAdicional/> 
-    </Detalle> `;
+            return `<OtraMoneda> 
+                            <TipoMoneda>` + this.tipoMoneda + `</TipoMoneda> 
+                            <TipoCambio> ` + this.tipoCambio + `</TipoCambio> 
+                            <TotalOtraMoneda> ` + this.totalOtraMoneda + `</TotalOtraMoneda>                           
+                           </OtraMoneda>`;
         };
     }
 }
 __decorate([
     swagger_1.ApiProperty({
-        title: 'Linea',
-        example: '2',
+        title: 'Tipo Moneda ',
+        example: 'CLP',
     }),
     __metadata("design:type", String)
-], DetalleDto.prototype, "linea", void 0);
+], OtraMonedaDto.prototype, "tipoMoneda", void 0);
 __decorate([
     swagger_1.ApiProperty({
-        title: 'Detalle de Producto',
-        example: 'UBER',
+        title: 'Tipo Cambio ',
+        example: '0',
     }),
     __metadata("design:type", String)
-], DetalleDto.prototype, "detalleProducto", void 0);
-exports.DetalleDto = DetalleDto;
-//# sourceMappingURL=detalle.dto.js.map
+], OtraMonedaDto.prototype, "tipoCambio", void 0);
+__decorate([
+    swagger_1.ApiProperty({
+        title: 'Total Otra Moneda',
+        example: '0.00',
+    }),
+    __metadata("design:type", String)
+], OtraMonedaDto.prototype, "totalOtraMoneda", void 0);
+exports.OtraMonedaDto = OtraMonedaDto;
+//# sourceMappingURL=otra-moneda.dto.js.map

@@ -2752,7 +2752,7 @@
         "affectsGlobalScope": false
       },
       "../src/modules/emitir/emitir.service.ts": {
-        "version": "575e295746f5b1445e6afc9a6090bca04e4f0aa78dd9147c9492c4e93c1eea80",
+        "version": "44dbdec03c8e56ff8ac5a2782e6e60eb5bb0650ec65f5846533e46ac35eb7aab",
         "signature": "192d8e2094ed8b83faff0f622669ca89db6009b14eb841663551c1d0a18e0c0f",
         "affectsGlobalScope": false
       },
@@ -3207,48 +3207,48 @@
         "affectsGlobalScope": false
       },
       "../src/modules/emitir/dto/despacho.dto.ts": {
-        "version": "925a92cd26df86904167fa853aba1246bf97ce7bf2f0dc2b8d8a25a14a8ae158",
-        "signature": "39eb926737b0ca94bd09df89b1192c583f53a8c6a00c2bd592427ca7fbfb862e",
+        "version": "710992a0e2080adbe852fdf4210180632129339b82d43fb4e861b73ad651aed0",
+        "signature": "2b4a49db888a5869c05326d013a66871674c0653600121aac7a0db2f8241c288",
         "affectsGlobalScope": false
       },
       "../src/modules/emitir/dto/detalle.dto.ts": {
-        "version": "cfa98e360da08e2aefd6ee345cfea4ba6b527f6cdf13524da530ad1be2f0ec4b",
-        "signature": "e72817db267519d06461cb99b402cda688ec671170c93a6f966e67980ede88e6",
+        "version": "b6e7feb88a5fd71ba2a543d169933701a5682e366cb4d45aed8d4bf3cbf2359c",
+        "signature": "f77e3324bad110dc32bac151e0d88a8084d630b4c5602c318152d3cfd5eb6a20",
         "affectsGlobalScope": false
       },
       "../src/modules/emitir/dto/encabezado.dto.ts": {
-        "version": "b2615cb4bf5c02ef8658f9e5a10148c4e1f6240e0bc700b5f96eada067780e49",
-        "signature": "a213723d493180c223adc23a4636d1b877eda1d05c54b767c334095ab3256c77",
+        "version": "dd5dac25cb436f54e8798be3931cab9562644ce120976ac53dd7ef420fff31cc",
+        "signature": "881f0d5b75952c75122f23e3ef051f304cada43869059977409a1c0a44bdf3eb",
         "affectsGlobalScope": false
       },
       "../src/modules/emitir/dto/receptor.dto.ts": {
-        "version": "bf14b4457697d056640502722508f68386516c016d6b47af32bbf41bffdc1fb4",
-        "signature": "200b8658fa88ade8b32e4688ace127e49a56747a61755ae79add10e283112993",
+        "version": "3d08c0741911e8f3e63f4165149f82631b8d92e1e235966c43ecaf04601c8557",
+        "signature": "8a292a96445cc039be1f24d60346387b81e091d78a2d19fb8b55ae26afe4d6e7",
         "affectsGlobalScope": false
       },
       "../src/modules/emitir/dto/exportacion.dto.ts": {
-        "version": "bf37800072da189ce6dade629babc77ae4cdf68a11693140a4a2716772caba56",
-        "signature": "2e497d506fc1573ce2ef080527d7edba57accebc145d3076ac25150aea27e0dc",
+        "version": "2dcdd8631d7061b9ea9876d4cd3c89b7b91e0581e4205f82ac285a7bc9d70330",
+        "signature": "43aec08d23bed554e21e1956d0b3d8ee0f67b50d7aee7793144981e633cf988c",
         "affectsGlobalScope": false
       },
       "../src/modules/emitir/dto/totales.dto.ts": {
-        "version": "64927032abc485e1b2e2069ccf42e639f57bb194d5b9f6235a258d84f3d71277",
-        "signature": "697d989e33aaf02844d68f994dfbcfa5b57edcead8a9c188b9e3797c147572c8",
+        "version": "fdc4dc75f794ec7adddd4490cb219ea1e7ed1e98c63503c5cb2f8fa00e040f6b",
+        "signature": "d6d436f131879e25e239fc85007fe06be80d6523ff4a0d55e44e69d97b811286",
         "affectsGlobalScope": false
       },
-      "../src/modules/emitir/dto/otra.moneda.dto.ts": {
-        "version": "14580425f8e02917aa1cb6d89d4110f8cfac07b65b2f53d71c0fd23d3c635064",
-        "signature": "407d82558600e0ff864f00419107b26d13034b1cb72dda5be193f21decc8fa94",
+      "../src/modules/emitir/dto/otra-moneda.dto.ts": {
+        "version": "6994576b53596433aa3b7ba7faf1eec7f227c7ac9728ea03e47823639e18205a",
+        "signature": "a22f39d8d4baff34436961bd8c572f329a245c4896281d8856e0562a1b171139",
         "affectsGlobalScope": false
       },
       "../src/modules/emitir/dto/personalizados.dto.ts": {
-        "version": "88d369c53925f7456f910d3c1861fc117367b1865e027dcfd6d78766496371e2",
-        "signature": "19297094daa28d8903c64b8845e2462328e87c8ba1641bacbddf7c27e1518c11",
+        "version": "87552ee3e1f86adb192d2433b2ba4a204c6bdebd673b2c3157d7e2831712f76a",
+        "signature": "7b500c2a9cc617296f79ccbc3e102ca9dc9a3cd5ed9af63df20abbfb733b40d5",
         "affectsGlobalScope": false
       },
       "../src/modules/emitir/dto/documento.dto.ts": {
-        "version": "d896ff109287ad0b90dc719d2597f808f027901e030d5ee56ef2cb0cfca6419b",
-        "signature": "15890c851b0ac3e1cf02dddfd349dc9595d7503f385f0e6a22e1aafca18134c5",
+        "version": "e548a3581f73fe90c8c781c7d3d4435c509f92b2e2577928902a3f7ac883b345",
+        "signature": "a49d3fbda79b199b9739b01118ec44fddc17b3e0956acd751f7f45618335582a",
         "affectsGlobalScope": false
       },
       "../src/shared/shared.module.ts": {
@@ -9798,7 +9798,6 @@
         "../src/app.module.ts"
       ],
       "../src/modules/emitir/dto/despacho.dto.ts": [
-        "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -9814,6 +9813,7 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../src/modules/emitir/dto/documento.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -9823,7 +9823,7 @@
         "../src/modules/emitir/dto/detalle.dto.ts",
         "../src/modules/emitir/dto/encabezado.dto.ts",
         "../src/modules/emitir/dto/exportacion.dto.ts",
-        "../src/modules/emitir/dto/otra.moneda.dto.ts",
+        "../src/modules/emitir/dto/otra-moneda.dto.ts",
         "../src/modules/emitir/dto/personalizados.dto.ts",
         "../src/modules/emitir/dto/receptor.dto.ts",
         "../src/modules/emitir/dto/totales.dto.ts"
@@ -9843,7 +9843,8 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
-      "../src/modules/emitir/dto/otra.moneda.dto.ts": [
+      "../src/modules/emitir/dto/otra-moneda.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -9851,6 +9852,7 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../src/modules/emitir/dto/personalizados.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -9858,6 +9860,7 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../src/modules/emitir/dto/receptor.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -9865,6 +9868,7 @@
         "../node_modules/@types/node/util.d.ts"
       ],
       "../src/modules/emitir/dto/totales.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -9913,13 +9917,11 @@
       ],
       "../src/modules/emitir/emitir.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
-        "../node_modules/typeorm/index.d.ts",
         "../src/config/config.keys.ts",
         "../src/modules/emitir/emitir.entity.ts",
         "../src/modules/emitir/emitir.repository.ts"
@@ -16246,7 +16248,7 @@
         "../src/modules/emitir/dto/detalle.dto.ts",
         "../src/modules/emitir/dto/encabezado.dto.ts",
         "../src/modules/emitir/dto/exportacion.dto.ts",
-        "../src/modules/emitir/dto/otra.moneda.dto.ts",
+        "../src/modules/emitir/dto/otra-moneda.dto.ts",
         "../src/modules/emitir/dto/personalizados.dto.ts",
         "../src/modules/emitir/dto/receptor.dto.ts",
         "../src/modules/emitir/dto/totales.dto.ts"

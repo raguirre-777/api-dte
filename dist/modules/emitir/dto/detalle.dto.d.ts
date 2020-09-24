@@ -1,12 +1,5 @@
-export declare class Detalle {
+export declare class DetalleDto {
     linea?: string;
-    tipoDocumentoLiquidado?: string;
     detalleProducto?: string;
-    cantidad?: string;
-    precioUnitario?: string;
-    precioDolar?: string;
-    totalLinea?: string;
-    indicaorRetenedor?: string;
-    codigoImpuestoAdicional?: string;
-    xml: string;
+    toXml: any;
 }

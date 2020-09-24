@@ -1,8 +1,8 @@
-export declare class Totales {
-    Neto: string;
-    Exento: string;
-    TasaIVA: string;
-    IVA: string;
-    MntTotal: string;
-    xml: string;
+export declare class TotalesDto {
+    neto: string;
+    exento: string;
+    tasaIVA: string;
+    iva: string;
+    mntTotal: string;
+    toXml: any;
 }

@@ -1,40 +1,56 @@
 import { ApiProperty } from "@nestjs/swagger";
 
-export class Encabezado {
-    @ApiProperty()
+export class EncabezadoDto {
+    @ApiProperty({
+        title: 'CodDctoSap',
+        example: '5705',
+    })
     codDctoSap?: string;
-    @ApiProperty()
+    @ApiProperty({
+        title: 'Codigo de la Empresa (egt 25)',
+        example: '25',
+    })
     codigoEmpresa?: string;
-    @ApiProperty()
+    @ApiProperty({
+        title: 'Resolucion',
+        example: '0',
+    })
     resolucion?: string;
-    @ApiProperty()
+    @ApiProperty({
+        title: 'Tipo de Documento (33,39)',
+        example: '33',
+    })
     tipoDocumento?: string;
-    @ApiProperty()
+    @ApiProperty({
+        title: 'Folio',
+        example: '5705',
+    })
     folio?: string;
-    @ApiProperty()
+    @ApiProperty({
+        title: 'Fecha de Emision',
+        example: '2019-09-26',
+    })
     fechaEmision?: string;
-    @ApiProperty()
+    @ApiProperty({
+        title: 'Fecha de Vencimiento',
+        example: '2019-09-25',
+    })
     fechaVencimiento?: string;
-    @ApiProperty()
-    codigoSucursal?: string;
-    @ApiProperty()
-    direccionSucursal?: string;
-    @ApiProperty()
-    comunaSucursal?: string;
-    @ApiProperty()
-    ciudadSucursal?: string;
 
-    xml: string = `<Encabezado> 
-                            <CodDctoSap>`+ this.folio + `</CodDctoSap> 
-                            <CodigoEmpresa>25</CodigoEmpresa>
-                            <Resolucion>0</Resolucion>
-                            <TipoDocumento>33</TipoDocumento>
-                            <Folio>`+ this.folio + `</Folio>
-                            <FechaEmision>2019-09-26</FechaEmision> 
-                            <FechaVencimiento>2019-09-25</FechaVencimiento> 
-                            <CodigoSucursal/> 
-                            <DireccionSucursal/>
-                            <ComunaSucursal/> 
-                            <CiudadSucursal/> 
-                        </Encabezado> `;
+
+    toXml: any = () => {
+        return `<Encabezado> 
+            <CodDctoSap>`+ this.folio + `</CodDctoSap> 
+            <CodigoEmpresa>`+ this.codigoEmpresa + `</CodigoEmpresa>
+            <Resolucion>0`+ this.resolucion + `</Resolucion>
+            <TipoDocumento>`+ this.tipoDocumento + `</TipoDocumento>
+            <Folio>`+ this.folio + `</Folio>
+            <FechaEmision>`+ this.fechaEmision + `</FechaEmision> 
+            <FechaVencimiento>`+ this.fechaVencimiento + `</FechaVencimiento> 
+            <CodigoSucursal/> 
+            <DireccionSucursal/>
+            <ComunaSucursal/> 
+            <CiudadSucursal/> 
+            </Encabezado> `;
+    }
 }

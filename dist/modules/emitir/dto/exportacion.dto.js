@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Exportacion = void 0;
-class Exportacion {
+exports.ExportacionDto = void 0;
+class ExportacionDto {
     constructor() {
-        this.xml = ` <Exportacion> 
+        this.toXml = () => {
+            return ` <Exportacion> 
                                 <CodigoTransporte/> 
                                 <CodigoPaisReceptor/> 
                                 <CodigoPaisDestino/> 
@@ -16,7 +17,8 @@ class Exportacion {
                                 <Operacion/> 
                                 <HblAwb/> 
                             </Exportacion> `;
+        };
     }
 }
-exports.Exportacion = Exportacion;
+exports.ExportacionDto = ExportacionDto;
 //# sourceMappingURL=exportacion.dto.js.map

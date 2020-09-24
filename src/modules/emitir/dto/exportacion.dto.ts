@@ -1,18 +1,7 @@
-export class Exportacion {
-    CodigoTransporte: string;
-    CodigoPaisReceptor: string;
-    CodigoPaisDestino: string;
-    TotalProductos: string;
-    TipoMoneda: string;
-    TipoCambio: string;
-    TotalMonedaExtranjera: string;
-    Origen: string;
-    Destino: string;
-    Operacion: string;
-    HblAwb: string;
+export class ExportacionDto {
 
-
-    xml: string = ` <Exportacion> 
+    toXml: any = () => {
+        return ` <Exportacion> 
                                 <CodigoTransporte/> 
                                 <CodigoPaisReceptor/> 
                                 <CodigoPaisDestino/> 
@@ -25,4 +14,5 @@ export class Exportacion {
                                 <Operacion/> 
                                 <HblAwb/> 
                             </Exportacion> `;
+    }
 }
