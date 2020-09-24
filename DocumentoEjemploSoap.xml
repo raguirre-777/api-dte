@@ -1,0 +1,112 @@
+<wss:XmlEntrada>
+<![CDATA[
+<Documento>
+    <Encabezado> 
+        <CodDctoSap>6120</CodDctoSap> 
+        <CodigoEmpresa>25</CodigoEmpresa>
+        <Resolucion>0</Resolucion>
+        <TipoDocumento>39</TipoDocumento>
+        <Folio>6120</Folio>
+        <FechaEmision>2019-09-26</FechaEmision> 
+        <FechaVencimiento>2019-09-25</FechaVencimiento> 
+        <CodigoSucursal/> 
+        <DireccionSucursal/>
+        <ComunaSucursal/> 
+        <CiudadSucursal/> 
+    </Encabezado> 
+    <Receptor> 
+        <Rut>96570750-6</Rut> 
+        <CodigoCliente>0000409313</CodigoCliente> 
+        <Nombre>DSV AIR &amp; SEA</Nombre> 
+        <Direccion> ANDRES BELLO 2687, PISO 14</Direccion> 
+        <Comuna>SANTIAGO</Comuna> 
+        <Ciudad>LAS CONDES</Ciudad> 
+        <Giro>CARGA TRANSPORTE REGULAR</Giro> 
+    </Receptor> 
+    <Exportacion> 
+        <CodigoTransporte/> 
+        <CodigoPaisReceptor/> 
+        <CodigoPaisDestino/> 
+        <TotalProductos/> 
+        <TipoMoneda/> 
+        <TipoCambio/> 
+        <TotalMonedaExtranjera/> 
+        <Origen/> 
+        <Destino/> 
+        <Operacion/> 
+        <HblAwb/> 
+    </Exportacion> 
+    <Detalle> 
+        <Linea>1</Linea> 
+        <TipoDocumentoLiquidado/> 
+        <DetalleProducto>COURIER / FLETE</DetalleProducto> 
+        <Cantidad>1</Cantidad> 
+        <PrecioUnitario>86112</PrecioUnitario> 
+        <PrecioDolar/> 
+        <TotalLinea>86112</TotalLinea> 
+        <IndicaorRetenedor/> 
+        <CodigoImpuestoAdicional/> 
+    </Detalle> 
+    <Detalle> 
+        <Linea> 2</Linea> 
+        <TipoDocumentoLiquidado/> 
+        <DetalleProducto>UBER</DetalleProducto> 
+        <Cantidad/> 
+        <PrecioUnitario/> 
+        <PrecioDolar/> 
+        <TotalLinea/> 
+        <IndicaorRetenedor/> 
+        <CodigoImpuestoAdicional/> 
+    </Detalle> 
+    <Detalle> 
+        <Linea> 3</Linea> 
+        <TipoDocumentoLiquidado/> 
+        <DetalleProducto>REF: 21277</DetalleProducto> 
+        <Cantidad/> 
+        <PrecioUnitario/> 
+        <PrecioDolar/> 
+        <TotalLinea/> 
+        <IndicaorRetenedor/> 
+        <CodigoImpuestoAdicional/> 
+    </Detalle> 
+    <Detalle> 
+        <Linea> 4</Linea> 
+        <TipoDocumentoLiquidado/>
+        <DetalleProducto>OT 725607114</DetalleProducto> 
+        <Cantidad/> 
+        <PrecioUnitario/> 
+        <PrecioDolar/> 
+        <TotalLinea/> 
+        <IndicaorRetenedor/> 
+        <CodigoImpuestoAdicional/> 
+    </Detalle> 
+    <Totales> 
+        <Neto>86112</Neto> 
+        <Exento>0</Exento> 
+        <TasaIVA>19</TasaIVA> 
+        <IVA>16361</IVA> 
+        <MntTotal>102473</MntTotal> 
+    </Totales> 
+    <OtraMoneda> 
+        <TipoMoneda>CLP</TipoMoneda> 
+        <TipoCambio> 0</TipoCambio> 
+        <TotalOtraMoneda> 0.00</TotalOtraMoneda> 
+    </OtraMoneda> 
+    <Despacho> 
+        <IndicadorTraslado/> 
+        <DireccionDestino/> 
+        <ComunaDestino/> 
+        <CiudadDestino/> 
+        <Patente/> 
+        <Chofer/> 
+    </Despacho> 
+    <Personalizados> 
+      <RequiereImpresion>N</RequiereImpresion> 
+        <Cedible>S</Cedible> 
+        <Impresora>LP01</Impresora> 
+        <MontoLetras>CIENTO DOS MIL CUATROCIENTOS SETENTA Y TRES</MontoLetras> 
+        <CuentaCorriente>409313</CuentaCorriente> 
+    </Personalizados> 
+</Documento>
+]]>
+</wss:XmlEntrada> 

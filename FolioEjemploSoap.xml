@@ -1,0 +1,17 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:app="http://app.dte.egt.cl/"> 
+   <soapenv:Header/> 
+   <soapenv:Body> 
+      <app:getFolioBasic> 
+         <!--Optional:--> 
+         <app:context_FOLIO>0</app:context_FOLIO> 
+         <!--Optional:--> 
+         <app:empresa>76211240</app:empresa> 
+         <!--Optional:-->
+         <app:qty>1</app:qty> 
+         <!--Optional:--> 
+         <app:resolucion>39</app:resolucion> 
+         <!--Optional:--> 
+         <app:token>ODhhOTA4NGQtODQwMC00NzdhLTliZjgtNTNkYjZmZWRmOGVj</app:token> 
+      </app:getFolioBasic> 
+   </soapenv:Body> 
+</soapenv:Envelope> 

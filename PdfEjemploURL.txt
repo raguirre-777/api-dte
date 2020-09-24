@@ -1,0 +1,1 @@
+http://10.83.45.21:8000/utiles/getUrlPublico.php?rut_emisor=76211240&tipo=39&folio=6678 
