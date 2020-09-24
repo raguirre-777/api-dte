@@ -12,12 +12,14 @@ const typeorm_1 = require("@nestjs/typeorm");
 const emitir_repository_1 = require("./emitir.repository");
 const emitir_service_1 = require("./emitir.service");
 const emitir_controller_1 = require("./emitir.controller");
+const folio_module_1 = require("../folio/folio.module");
 let EmitirModule = class EmitirModule {
 };
 EmitirModule = __decorate([
     common_1.Module({
         imports: [
-            typeorm_1.TypeOrmModule.forFeature([emitir_repository_1.EmitirRepository])
+            typeorm_1.TypeOrmModule.forFeature([emitir_repository_1.EmitirRepository]),
+            folio_module_1.FolioModule
         ],
         providers: [emitir_service_1.EmitirService],
         controllers: [emitir_controller_1.EmitirController],

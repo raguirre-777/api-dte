@@ -4,6 +4,5 @@ export declare class PersonalizadosDto {
     impresora: string;
     montoLetras: string;
     cuentaCorriente: string;
-    RutIva: string;
     toXml: any;
 }

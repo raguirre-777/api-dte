@@ -3,11 +3,7 @@ import {
     Get,
     Param,
     Post,
-    Body,
-    Patch,
-    Delete,
     ParseIntPipe,
-    UseGuards,
 } from '@nestjs/common';
 import { FolioService } from './folio.service';
 import { Folio } from './folio.entity';

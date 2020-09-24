@@ -9,6 +9,7 @@ import { FolioController } from './folio.controller';
         TypeOrmModule.forFeature([FolioRepository])
     ],
     providers: [FolioService],
+    exports: [FolioService],
     controllers: [FolioController],
 
 })

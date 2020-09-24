@@ -23,7 +23,7 @@ export class FolioService {
         return folios;
     }
 
-    async create(tipo: number): Promise<Folio> { // 33 , 39 badrequet 400
+    async create(tipo: number): Promise<any> { // 33 , 39 badrequet 400
         let f: FolioDto;
         if (tipo === 33 || tipo === 39) {
             const soap = require('strong-soap').soap;

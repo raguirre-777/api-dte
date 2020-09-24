@@ -1,8 +1,8 @@
+import { DocumentoDto } from './dto/documento.dto';
 import { Emitir } from './emitir.entity';
 import { EmitirService } from './emitir.service';
 export declare class EmitirController {
     private readonly _emitirService;
     constructor(_emitirService: EmitirService);
-    getFolios(): Promise<Emitir[]>;
-    create(tipo: number): Promise<Emitir>;
+    create(documento: DocumentoDto): Promise<Emitir>;
 }

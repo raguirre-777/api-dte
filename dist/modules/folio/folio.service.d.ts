@@ -4,6 +4,6 @@ export declare class FolioService {
     private readonly _folioRepository;
     constructor(_folioRepository: FolioRepository);
     getAll(): Promise<Folio[]>;
-    create(tipo: number): Promise<Folio>;
+    create(tipo: number): Promise<any>;
     update(id: number, folio: Folio): Promise<void>;
 }

@@ -13,99 +13,20 @@ exports.EmitirService = void 0;
 const common_1 = require("@nestjs/common");
 const emitir_repository_1 = require("./emitir.repository");
 const config_keys_1 = require("../../config/config.keys");
+const folio_service_1 = require("../folio/folio.service");
 let EmitirService = class EmitirService {
-    constructor(_emitirRepository) {
+    constructor(_emitirRepository, _folioService) {
         this._emitirRepository = _emitirRepository;
+        this._folioService = _folioService;
     }
-    async getAll() {
-        const folios = await this._emitirRepository.find();
-        return folios;
-    }
-    async create(tipo) {
-        const encabezado = `  <Encabezado> 
-                                <CodDctoSap>5705</CodDctoSap> 
-                                <CodigoEmpresa>25</CodigoEmpresa>
-                                <Resolucion>0</Resolucion>
-                                <TipoDocumento>33</TipoDocumento>
-                                <Folio>5705</Folio>
-                                <FechaEmision>2019-09-26</FechaEmision> 
-                                <FechaVencimiento>2019-09-25</FechaVencimiento> 
-                                <CodigoSucursal/> 
-                                <DireccionSucursal/>
-                                <ComunaSucursal/> 
-                                <CiudadSucursal/> 
-                            </Encabezado> `;
-        const receptor = `    <Receptor> 
-                                <Rut>96570750-6</Rut> 
-                                <CodigoCliente>0000409313</CodigoCliente> 
-                                <Nombre>DSV AIR &amp; SEA</Nombre> 
-                                <Direccion> ANDRES BELLO 2687, PISO 14</Direccion> 
-                                <Comuna>SANTIAGO</Comuna> 
-                                <Ciudad>LAS CONDES</Ciudad> 
-                                <Giro>CARGA TRANSPORTE REGULAR</Giro> 
-                            </Receptor> `;
-        const exportacion = ` <Exportacion> 
-                                <CodigoTransporte/> 
-                                <CodigoPaisReceptor/> 
-                                <CodigoPaisDestino/> 
-                                <TotalProductos/> 
-                                <TipoMoneda/> 
-                                <TipoCambio/> 
-                                <TotalMonedaExtranjera/> 
-                                <Origen/> 
-                                <Destino/> 
-                                <Operacion/> 
-                                <HblAwb/> 
-                            </Exportacion> `;
-        const detalles = `<Detalle> 
-                            <Linea> 2</Linea> 
-                            <TipoDocumentoLiquidado/> 
-                            <DetalleProducto>UBER</DetalleProducto> 
-                            <Cantidad/> 
-                            <PrecioUnitario/> 
-                            <PrecioDolar/> 
-                            <TotalLinea/> 
-                            <IndicaorRetenedor/> 
-                            <CodigoImpuestoAdicional/> 
-                        </Detalle> `;
-        const totales = ` <Totales> 
-                            <Neto>86112</Neto> 
-                            <Exento>0</Exento> 
-                            <TasaIVA>19</TasaIVA> 
-                            <IVA>16361</IVA> 
-                            <MntTotal>102473</MntTotal> 
-                        </Totales> `;
-        const otra_moneda = `<OtraMoneda> 
-                            <TipoMoneda>CLP</TipoMoneda> 
-                            <TipoCambio> 0</TipoCambio> 
-                            <TotalOtraMoneda> 0.00</TotalOtraMoneda> 
-                           </OtraMoneda>`;
-        const despacho = `    <Despacho> 
-                                <IndicadorTraslado/> 
-                                <DireccionDestino/> 
-                                <ComunaDestino/> 
-                                <CiudadDestino/> 
-                                <Patente/> 
-                                <Chofer/> 
-                            </Despacho> `;
-        const personalizados = `<Personalizados> 
-                                <RequiereImpresion>N</RequiereImpresion> 
-                                <Cedible>S</Cedible> 
-                                <Impresora>LP01</Impresora> 
-                                <MontoLetras>CIENTO DOS MIL CUATROCIENTOS SETENTA Y TRES</MontoLetras> 
-                                <CuentaCorriente>409313</CuentaCorriente> 
-                              </Personalizados> `;
+    async create(documento) {
+        const tipoDocto = Number(documento.encabezado.tipoDocumento);
+        const folio = await this._folioService.create(tipoDocto);
+        documento.encabezado.folio = "" + folio.folioDocumento;
+        console.log("documento xml ");
+        console.log(">>" + documento.despacho.toXml);
         const xml = `<![CDATA[
-                <Documento>
-                    ` + encabezado + `
-                    ` + receptor + `
-                    ` + exportacion + `
-                    ` + detalles + `
-                    ` + totales + `
-                    ` + otra_moneda + `
-                    ` + despacho + `
-                    ` + personalizados + `
-                </Documento>
+                    ` + documento.encabezado.toXml + `
             ]]>`;
         const options = {};
         const soap = require('strong-soap').soap;
@@ -113,22 +34,58 @@ let EmitirService = class EmitirService {
         const requestArgs = {
             XmlEntrada: xml
         };
-        soap.createClient(url, options, function (err, client) {
-            console.log(client);
-            console.log(err);
-            const method = client.RecepcionXml;
-            method(requestArgs, function (err, result, _envelope, soapHeader) {
-                console.log('-----TRUE------');
-                console.log(result);
+        const resultado = await new Promise((resolve) => {
+            soap.createClient(url, options, function (err, client) {
+                if (err) {
+                    resolve({
+                        error: true,
+                        message: err,
+                        folio: 0,
+                    });
+                    return;
+                }
+                const method = client.RecepcionXml;
+                method(requestArgs, function (err, result, envelope, soapHeader) {
+                    if (err) {
+                        resolve({
+                            error: true,
+                            message: err,
+                            folio: 0,
+                        });
+                    }
+                    if (result.RecepcionXmlResult) {
+                        resolve({
+                            error: false,
+                            message: 'Emitir cargado con exito',
+                            folio: result.Folio,
+                            mensaje: result.Mensaje,
+                        });
+                    }
+                    else {
+                        resolve({
+                            error: true,
+                            message: 'No fue posible emitir',
+                            folio: 0,
+                        });
+                    }
+                    console.log('-----TRUE------');
+                    console.log(result);
+                });
             });
         });
-        const documento = { tipoDocumento: tipo, folioDocumento: '' };
-        return await this._emitirRepository.save(documento);
+        if (resultado.error) {
+            throw new common_1.HttpException({
+                status: common_1.HttpStatus.BAD_REQUEST,
+                error: resultado.message,
+            }, 400);
+        }
+        return null;
     }
 };
 EmitirService = __decorate([
     common_1.Injectable(),
-    __metadata("design:paramtypes", [emitir_repository_1.EmitirRepository])
+    __metadata("design:paramtypes", [emitir_repository_1.EmitirRepository,
+        folio_service_1.FolioService])
 ], EmitirService);
 exports.EmitirService = EmitirService;
 //# sourceMappingURL=emitir.service.js.map

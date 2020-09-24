@@ -20,6 +20,7 @@ FolioModule = __decorate([
             typeorm_1.TypeOrmModule.forFeature([folio_repository_1.FolioRepository])
         ],
         providers: [folio_service_1.FolioService],
+        exports: [folio_service_1.FolioService],
         controllers: [folio_controller_1.FolioController],
     })
 ], FolioModule);

@@ -15,31 +15,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmitirController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
+const documento_dto_1 = require("./dto/documento.dto");
 const emitir_service_1 = require("./emitir.service");
 let EmitirController = class EmitirController {
     constructor(_emitirService) {
         this._emitirService = _emitirService;
     }
-    async getFolios() {
-        const folios = await this._emitirService.getAll();
-        return folios;
-    }
-    async create(tipo) {
-        const createdFolio = await this._emitirService.create(tipo);
+    async create(documento) {
+        const createdFolio = await this._emitirService.create(documento);
         return createdFolio;
     }
 };
 __decorate([
-    common_1.Get(),
+    common_1.Post(),
+    __param(0, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], EmitirController.prototype, "getFolios", null);
-__decorate([
-    common_1.Post(':tipo'),
-    __param(0, common_1.Param('tipo', common_1.ParseIntPipe)),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [documento_dto_1.DocumentoDto]),
     __metadata("design:returntype", Promise)
 ], EmitirController.prototype, "create", null);
 EmitirController = __decorate([

@@ -2751,11 +2751,6 @@
         "signature": "826fd41b3e981737fd0488d7af7f00144db282c6f6ad70c408c2a0b8f8d7d32e",
         "affectsGlobalScope": false
       },
-      "../src/modules/emitir/emitir.service.ts": {
-        "version": "44dbdec03c8e56ff8ac5a2782e6e60eb5bb0650ec65f5846533e46ac35eb7aab",
-        "signature": "192d8e2094ed8b83faff0f622669ca89db6009b14eb841663551c1d0a18e0c0f",
-        "affectsGlobalScope": false
-      },
       "../node_modules/@nestjs/swagger/dist/decorators/api-basic.decorator.d.ts": {
         "version": "6ecc423e71318bafbd230e6059e082c377170dfc7e02fccfa600586f8604d452",
         "signature": "6ecc423e71318bafbd230e6059e082c377170dfc7e02fccfa600586f8604d452",
@@ -2941,14 +2936,49 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "affectsGlobalScope": false
       },
-      "../src/modules/emitir/emitir.controller.ts": {
-        "version": "d97c386fd31f6a90344a4f86b8b46aeaba22e1510f84155984cd3b4a9fb02768",
-        "signature": "1e4df6e5c929c8d33df8bdde2ee006e58db3e037aeca4e59d7a4e862de8aa289",
+      "../src/modules/emitir/dto/encabezado.dto.ts": {
+        "version": "dd5dac25cb436f54e8798be3931cab9562644ce120976ac53dd7ef420fff31cc",
+        "signature": "881f0d5b75952c75122f23e3ef051f304cada43869059977409a1c0a44bdf3eb",
         "affectsGlobalScope": false
       },
-      "../src/modules/emitir/emitir.module.ts": {
-        "version": "56d53806b1f60b590e6346d17a57b5dd21ad0c7ec3a5c3431816aa50f96c27f0",
-        "signature": "240978fe64d675c3b4ff35f6c2d3e3dd0142d77b694107331fc8d44a06ccb59c",
+      "../src/modules/emitir/dto/receptor.dto.ts": {
+        "version": "3d08c0741911e8f3e63f4165149f82631b8d92e1e235966c43ecaf04601c8557",
+        "signature": "8a292a96445cc039be1f24d60346387b81e091d78a2d19fb8b55ae26afe4d6e7",
+        "affectsGlobalScope": false
+      },
+      "../src/modules/emitir/dto/exportacion.dto.ts": {
+        "version": "2dcdd8631d7061b9ea9876d4cd3c89b7b91e0581e4205f82ac285a7bc9d70330",
+        "signature": "43aec08d23bed554e21e1956d0b3d8ee0f67b50d7aee7793144981e633cf988c",
+        "affectsGlobalScope": false
+      },
+      "../src/modules/emitir/dto/detalle.dto.ts": {
+        "version": "b6e7feb88a5fd71ba2a543d169933701a5682e366cb4d45aed8d4bf3cbf2359c",
+        "signature": "f77e3324bad110dc32bac151e0d88a8084d630b4c5602c318152d3cfd5eb6a20",
+        "affectsGlobalScope": false
+      },
+      "../src/modules/emitir/dto/totales.dto.ts": {
+        "version": "fdc4dc75f794ec7adddd4490cb219ea1e7ed1e98c63503c5cb2f8fa00e040f6b",
+        "signature": "d6d436f131879e25e239fc85007fe06be80d6523ff4a0d55e44e69d97b811286",
+        "affectsGlobalScope": false
+      },
+      "../src/modules/emitir/dto/otra-moneda.dto.ts": {
+        "version": "6994576b53596433aa3b7ba7faf1eec7f227c7ac9728ea03e47823639e18205a",
+        "signature": "a22f39d8d4baff34436961bd8c572f329a245c4896281d8856e0562a1b171139",
+        "affectsGlobalScope": false
+      },
+      "../src/modules/emitir/dto/despacho.dto.ts": {
+        "version": "710992a0e2080adbe852fdf4210180632129339b82d43fb4e861b73ad651aed0",
+        "signature": "2b4a49db888a5869c05326d013a66871674c0653600121aac7a0db2f8241c288",
+        "affectsGlobalScope": false
+      },
+      "../src/modules/emitir/dto/personalizados.dto.ts": {
+        "version": "1e7c2e0848b003e87de6a1d81ae7efcebb7e8f52d98f196a9871b711efec5b6a",
+        "signature": "aa4ce986c6aff32ba090d715cf6fe72bd0d39eb67f81a475386ba587dc3a83af",
+        "affectsGlobalScope": false
+      },
+      "../src/modules/emitir/dto/documento.dto.ts": {
+        "version": "c1572c7b839ab1a18d50d4d04433763fde776b57ea37bf5d2a3ac3ba8e75a7b2",
+        "signature": "a49d3fbda79b199b9739b01118ec44fddc17b3e0956acd751f7f45618335582a",
         "affectsGlobalScope": false
       },
       "../src/modules/folio/folio.entity.ts": {
@@ -2967,18 +2997,33 @@
         "affectsGlobalScope": false
       },
       "../src/modules/folio/folio.service.ts": {
-        "version": "ff1dcd967956c530cd20e3228e1013790b73ce8244e329a52d2e5eca0df16aa8",
-        "signature": "992d924725c324ea5b1e0959c57bc0756c39949a649ecc6c20f81e97d59654ef",
+        "version": "1b10ae5eca07aa0b729cbfbdbf536745d7c9123729c6d6cf1ea29cb2f627d2f4",
+        "signature": "08f4008502adf88752c832cec705c6b960176501d9ec73fb58fb4ec2d2785610",
+        "affectsGlobalScope": false
+      },
+      "../src/modules/emitir/emitir.service.ts": {
+        "version": "1f79d177df2c26b9a289443995af86a9e376970af47741436bef8966156e0999",
+        "signature": "c562911788f6bb36dfe2a5b6c25b5899c5b5af5bc90175d6c1c451f7b7ca8260",
+        "affectsGlobalScope": false
+      },
+      "../src/modules/emitir/emitir.controller.ts": {
+        "version": "771eab02b3e0cd49a31dae3c75ae2493d952bd7a7840fbca4380256b839a52af",
+        "signature": "0ee047540ffd98476a5246862563b1cb7b757cffd93cedb2fcfef41879bfcb26",
         "affectsGlobalScope": false
       },
       "../src/modules/folio/folio.controller.ts": {
-        "version": "0b189d13d4c4168c1018c82b93658fdc112227fc5cd3cb0a2dcd201e7041b10a",
+        "version": "ba59df5b885bc0f25265dbefde261f6e4f4bade5b2e786883783dd6caca3ec05",
         "signature": "c516616543e6c3a0551a6a43f547b6f7989bd00e81ed7bc3798fced36f392db9",
         "affectsGlobalScope": false
       },
       "../src/modules/folio/folio.module.ts": {
-        "version": "e7f5323d34d3d24b20d83d6eb883f9086c58fd4e0c91f774255f3f0b8c1305aa",
+        "version": "d22c36138e9932455e67e46a11d29921e67fa8cae00f7b3390e56e356737fb6c",
         "signature": "34ac69976aa80880908fcc7a556754393a19416cc380e1c4843bd6e029d248b2",
+        "affectsGlobalScope": false
+      },
+      "../src/modules/emitir/emitir.module.ts": {
+        "version": "af637f6cdebf9c366452694acfd0321ba1deea6f45982f0c976d9385c8a5dfc1",
+        "signature": "240978fe64d675c3b4ff35f6c2d3e3dd0142d77b694107331fc8d44a06ccb59c",
         "affectsGlobalScope": false
       },
       "../src/modules/pdf/pdf.entity.ts": {
@@ -3204,51 +3249,6 @@
       "../src/database/migrations/1597664138369-as.ts": {
         "version": "c13f36755a141256bd9d845c3989072ed36d01bc94fa2324ae770ca29de7396d",
         "signature": "fd6a4b67963b0a79340432c389be3686a00a6ece25949aed118fde7eb5828b24",
-        "affectsGlobalScope": false
-      },
-      "../src/modules/emitir/dto/despacho.dto.ts": {
-        "version": "710992a0e2080adbe852fdf4210180632129339b82d43fb4e861b73ad651aed0",
-        "signature": "2b4a49db888a5869c05326d013a66871674c0653600121aac7a0db2f8241c288",
-        "affectsGlobalScope": false
-      },
-      "../src/modules/emitir/dto/detalle.dto.ts": {
-        "version": "b6e7feb88a5fd71ba2a543d169933701a5682e366cb4d45aed8d4bf3cbf2359c",
-        "signature": "f77e3324bad110dc32bac151e0d88a8084d630b4c5602c318152d3cfd5eb6a20",
-        "affectsGlobalScope": false
-      },
-      "../src/modules/emitir/dto/encabezado.dto.ts": {
-        "version": "dd5dac25cb436f54e8798be3931cab9562644ce120976ac53dd7ef420fff31cc",
-        "signature": "881f0d5b75952c75122f23e3ef051f304cada43869059977409a1c0a44bdf3eb",
-        "affectsGlobalScope": false
-      },
-      "../src/modules/emitir/dto/receptor.dto.ts": {
-        "version": "3d08c0741911e8f3e63f4165149f82631b8d92e1e235966c43ecaf04601c8557",
-        "signature": "8a292a96445cc039be1f24d60346387b81e091d78a2d19fb8b55ae26afe4d6e7",
-        "affectsGlobalScope": false
-      },
-      "../src/modules/emitir/dto/exportacion.dto.ts": {
-        "version": "2dcdd8631d7061b9ea9876d4cd3c89b7b91e0581e4205f82ac285a7bc9d70330",
-        "signature": "43aec08d23bed554e21e1956d0b3d8ee0f67b50d7aee7793144981e633cf988c",
-        "affectsGlobalScope": false
-      },
-      "../src/modules/emitir/dto/totales.dto.ts": {
-        "version": "fdc4dc75f794ec7adddd4490cb219ea1e7ed1e98c63503c5cb2f8fa00e040f6b",
-        "signature": "d6d436f131879e25e239fc85007fe06be80d6523ff4a0d55e44e69d97b811286",
-        "affectsGlobalScope": false
-      },
-      "../src/modules/emitir/dto/otra-moneda.dto.ts": {
-        "version": "6994576b53596433aa3b7ba7faf1eec7f227c7ac9728ea03e47823639e18205a",
-        "signature": "a22f39d8d4baff34436961bd8c572f329a245c4896281d8856e0562a1b171139",
-        "affectsGlobalScope": false
-      },
-      "../src/modules/emitir/dto/personalizados.dto.ts": {
-        "version": "87552ee3e1f86adb192d2433b2ba4a204c6bdebd673b2c3157d7e2831712f76a",
-        "signature": "7b500c2a9cc617296f79ccbc3e102ca9dc9a3cd5ed9af63df20abbfb733b40d5",
-        "affectsGlobalScope": false
-      },
-      "../src/modules/emitir/dto/documento.dto.ts": {
-        "version": "e548a3581f73fe90c8c781c7d3d4435c509f92b2e2577928902a3f7ac883b345",
-        "signature": "a49d3fbda79b199b9739b01118ec44fddc17b3e0956acd751f7f45618335582a",
         "affectsGlobalScope": false
       },
       "../src/shared/shared.module.ts": {
@@ -9883,6 +9883,7 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
+        "../src/modules/emitir/dto/documento.dto.ts",
         "../src/modules/emitir/emitir.entity.ts",
         "../src/modules/emitir/emitir.service.ts"
       ],
@@ -9904,7 +9905,8 @@
         "../node_modules/@types/node/util.d.ts",
         "../src/modules/emitir/emitir.controller.ts",
         "../src/modules/emitir/emitir.repository.ts",
-        "../src/modules/emitir/emitir.service.ts"
+        "../src/modules/emitir/emitir.service.ts",
+        "../src/modules/folio/folio.module.ts"
       ],
       "../src/modules/emitir/emitir.repository.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -9923,8 +9925,11 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../src/config/config.keys.ts",
+        "../src/modules/emitir/dto/documento.dto.ts",
         "../src/modules/emitir/emitir.entity.ts",
-        "../src/modules/emitir/emitir.repository.ts"
+        "../src/modules/emitir/emitir.repository.ts",
+        "../src/modules/folio/folio.entity.ts",
+        "../src/modules/folio/folio.service.ts"
       ],
       "../src/modules/folio/folio.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -16254,6 +16259,7 @@
         "../src/modules/emitir/dto/totales.dto.ts"
       ],
       "../src/modules/emitir/emitir.controller.ts": [
+        "../src/modules/emitir/dto/documento.dto.ts",
         "../src/modules/emitir/emitir.entity.ts",
         "../src/modules/emitir/emitir.service.ts"
       ],
@@ -16265,8 +16271,10 @@
         "../src/modules/emitir/emitir.entity.ts"
       ],
       "../src/modules/emitir/emitir.service.ts": [
+        "../src/modules/emitir/dto/documento.dto.ts",
         "../src/modules/emitir/emitir.entity.ts",
-        "../src/modules/emitir/emitir.repository.ts"
+        "../src/modules/emitir/emitir.repository.ts",
+        "../src/modules/folio/folio.service.ts"
       ],
       "../src/modules/folio/folio.controller.ts": [
         "../src/modules/folio/folio.entity.ts",
